@@ -203,7 +203,7 @@ def import_hash(json, group)
       json.each do |key, data|
         p = Pokemon.find_by_key(key)
         if not p.nil?
-          data.each do |move_key, data|
+          data["learnset"].each do |move_key, data|
             move = Move.find_by_key(move_key)
             if not move.nil?
               mp = MovePokemon.new

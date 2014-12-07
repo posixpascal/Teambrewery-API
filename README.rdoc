@@ -1,28 +1,24 @@
-== README
+== Teambrewery API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The API behind Teambrewery. 
+Launch using
 
-Things you may want to cover:
+```rails s -e production -p 3333```
 
-* Ruby version
+== What does it do?
 
-* System dependencies
+This API handles everything about Pokemon, eg:
 
-* Configuration
+* Get a specific move for a pokemon
+* Get all pokemon which are able to use <tt>Move</tt>
+* Get typing of a pokemon
+* ... more stuff
 
-* Database creation
+== Is it ready yet?
 
-* Database initialization
+**No**, unfortunately it isn't. :(. You can use a few features already like move picking:
 
-* How to run the test suite
+```Pokemon.find_by_species('Squirtle').moves.find_by_name("Hyper Beam") // => nil```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Check `app/controllers/api` for examples on how to use the API.
+I will keep this repository up to date. :)
