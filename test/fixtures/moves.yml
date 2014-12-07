@@ -1,0 +1,65 @@
+# == Schema Information
+#
+# Table name: moves
+#
+#  id          :integer          not null, primary key
+#  key         :string(255)
+#  num         :integer
+#  accuracy    :integer
+#  basepower   :integer
+#  category    :string(255)
+#  desc        :string(255)
+#  desc_short  :string(255)
+#  name        :string(255)
+#  pp          :integer
+#  priority    :integer
+#  secondary   :boolean
+#  target      :string(255)
+#  type_id     :integer
+#  is_viable   :boolean
+#  is_contact  :boolean
+#  protectable :boolean
+#  crit_ratio  :float
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+  num: 1
+  accuracy: 1
+  basepower: 1
+  category: MyString
+  desc: MyString
+  desc_short: MyString
+  name: MyString
+  pp: 1
+  priority: 1
+  secondary: false
+  target: MyString
+  type_id: 1
+  is_viable: false
+  is_contact: false
+  protectable: false
+  crit_ratio: 1.5
+
+two:
+  key: MyString
+  num: 1
+  accuracy: 1
+  basepower: 1
+  category: MyString
+  desc: MyString
+  desc_short: MyString
+  name: MyString
+  pp: 1
+  priority: 1
+  secondary: false
+  target: MyString
+  type_id: 1
+  is_viable: false
+  is_contact: false
+  protectable: false
+  crit_ratio: 1.5

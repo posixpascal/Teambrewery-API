@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: movesets
+#
+#  id              :integer          not null, primary key
+#  team_pokemon_id :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pokemon_id: 1
+
+two:
+  pokemon_id: 1

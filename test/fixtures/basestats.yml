@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: basestats
+#
+#  id         :integer          not null, primary key
+#  pokemon_id :integer
+#  hp         :integer
+#  atk        :integer
+#  def        :integer
+#  spa        :integer
+#  spd        :integer
+#  spe        :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pokemon_id: 1
+  hp: 1
+  atk: 1
+  def: 1
+  spa: 1
+  spd: 1
+  spe: 1
+
+two:
+  pokemon_id: 1
+  hp: 1
+  atk: 1
+  def: 1
+  spa: 1
+  spd: 1
+  spe: 1

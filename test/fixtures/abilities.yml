@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: abilities
+#
+#  id         :integer          not null, primary key
+#  key        :string(255)
+#  desc       :string(255)
+#  desc_short :string(255)
+#  name       :string(255)
+#  rating     :float
+#  num        :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+  desc: MyString
+  desc_short: MyString
+  name: MyString
+  rating: 
+  num: 1
+
+two:
+  key: MyString
+  desc: MyString
+  desc_short: MyString
+  name: MyString
+  rating: 
+  num: 1

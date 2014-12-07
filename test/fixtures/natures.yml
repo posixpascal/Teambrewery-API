@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pdef: 1.5
+  hp: 1.5
+  patk: 1.5
+  spdef: 1.5
+  spatk: 1.5
+  spe: 1.5
+
+two:
+  pdef: 1.5
+  hp: 1.5
+  patk: 1.5
+  spdef: 1.5
+  spatk: 1.5
+  spe: 1.5

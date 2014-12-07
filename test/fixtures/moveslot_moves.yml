@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  moveslot_id: 1
+  move_id: 1
+
+two:
+  moveslot_id: 1
+  move_id: 1

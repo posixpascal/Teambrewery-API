@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: pokemons
+#
+#  id         :integer          not null, primary key
+#  key        :string(255)
+#  pokedex    :integer
+#  species    :string(255)
+#  basestats  :integer
+#  height     :integer
+#  weight     :integer
+#  color      :string(255)
+#  mega       :boolean
+#  mega_forme :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+  pokedex: 1
+  species: MyString
+  basestats: 1
+  height: 1
+  weight: 1
+  color: MyString
+  mega: false
+  mega_forme: MyString
+
+two:
+  key: MyString
+  pokedex: 1
+  species: MyString
+  basestats: 1
+  height: 1
+  weight: 1
+  color: MyString
+  mega: false
+  mega_forme: MyString

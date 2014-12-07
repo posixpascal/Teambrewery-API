@@ -1,0 +1,44 @@
+# == Schema Information
+#
+# Table name: item_details
+#
+#  id               :integer          not null, primary key
+#  item_id          :integer
+#  megastone        :boolean
+#  mega_evolves     :integer
+#  berry            :boolean
+#  naturalgift      :string(255)
+#  naturalgift_bp   :integer
+#  naturalgift_type :integer
+#  fling            :boolean
+#  fling_bp         :integer
+#  unreleased       :boolean
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_id: 1
+  megastone: false
+  mega_evolves: 1
+  berry: false
+  naturalgift: MyString
+  naturalgift_bp: 1
+  naturalgift_type: 1
+  fling: false
+  fling_bp: 1
+  unreleased: false
+
+two:
+  item_id: 1
+  megastone: false
+  mega_evolves: 1
+  berry: false
+  naturalgift: MyString
+  naturalgift_bp: 1
+  naturalgift_type: 1
+  fling: false
+  fling_bp: 1
+  unreleased: false

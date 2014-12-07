@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: team_pokemons
+#
+#  id           :integer          not null, primary key
+#  pokemon_id   :integer
+#  evspread     :integer
+#  nickname     :string(255)
+#  happiness    :integer
+#  gender       :integer
+#  shiny        :boolean
+#  ability_id   :integer
+#  item_id      :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#  learnset_id  :integer
+#  moveset_id   :integer
+#  ev_spread_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pokemon_id: 1
+  evspread: 1
+  nickname: MyString
+  happiness: 1
+  gender: 1
+  shiny: false
+  ability_id: 1
+  item_id: 1
+
+two:
+  pokemon_id: 1
+  evspread: 1
+  nickname: MyString
+  happiness: 1
+  gender: 1
+  shiny: false
+  ability_id: 1
+  item_id: 1
