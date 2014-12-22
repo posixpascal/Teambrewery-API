@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: '/auth'
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
     
@@ -16,10 +17,10 @@ Rails.application.routes.draw do
      match "team/:id/update", :to => "team#update", :via => [:options, :post]
      match "teams/create", :to => "team#create", :via => [:options, :post, :get]
      match "teams/list", :to => "team#list", :via => [:options, :get]
-  end
-      
+  end      
 
   
 
   get "/auth/:provider/callback", to: "session#create"
+
 end

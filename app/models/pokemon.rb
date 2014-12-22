@@ -60,4 +60,9 @@ class Pokemon < ActiveRecord::Base
     def weaknesses_and_resistances
         self.typing.weaknesses_and_resistances
     end
+
+    def display_name
+
+        self.species
+    end
 end

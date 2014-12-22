@@ -41,6 +41,8 @@ gem "omniauth-twitter"
 gem "rack-cors"
 gem "activerecord-session_store"
 gem "friendly_id", '~> 5.0.0'
+
+gem 'active_skin'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

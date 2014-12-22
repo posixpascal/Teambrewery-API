@@ -34,6 +34,7 @@ GEM
       erubis (~> 2.7.0)
     active_model_serializers (0.9.0)
       activemodel (>= 3.2)
+    active_skin (0.0.8)
     activemodel (4.1.4)
       activesupport (= 4.1.4)
       builder (~> 3.1)
@@ -233,6 +234,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  active_skin
   activeadmin!
   activerecord-session_store
   annotate

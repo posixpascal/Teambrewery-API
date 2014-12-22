@@ -1,4 +1,4 @@
-ActiveAdmin.register Pokemon do
+ActiveAdmin.register User do
 
 
   # See permitted parameters documentation:
@@ -13,21 +13,6 @@ ActiveAdmin.register Pokemon do
   #   permitted << :other if resource.something?
   #   permitted
   # end
-  
-  index do
-    column "Pokemon", :species
-    column "Sprite" do |pokemon|
-      image_tag pokemon.sprite.url, {height: "30px", width: "auto"}
-    end
-    column "Abilities" do |pokemon|
-      ul do
-        pokemon.abilities.each do |ability|
-          li ability.name
-        end
-      end
-    end
-
-  end
 
 
 end
