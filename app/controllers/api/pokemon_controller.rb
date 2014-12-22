@@ -1,4 +1,4 @@
-class Api::PokemonController < ApplicationController
+class Api::PokemonController < Api::ApiController
   before_filter :order
   def show
       if params[:id]

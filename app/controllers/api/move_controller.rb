@@ -1,4 +1,4 @@
-class Api::MoveController < ApplicationController
+class Api::MoveController < Api::ApiController
   def index
   end
 

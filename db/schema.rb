@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214125320) do
+ActiveRecord::Schema.define(version: 20141222150906) do
 
   create_table "abilities", force: true do |t|
     t.string   "key"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20141214125320) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "image"
+    t.text     "tokens"
+    t.string   "confirmation_token"
+    t.string   "unconfirmed_email"
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
@@ -332,7 +342,6 @@ ActiveRecord::Schema.define(version: 20141214125320) do
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "type_detail_id"
   end
 
   create_table "typing_types", force: true do |t|

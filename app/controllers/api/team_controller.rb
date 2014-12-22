@@ -1,4 +1,4 @@
-class Api::TeamController < ApplicationController
+class Api::TeamController < Api::ApiController
 
   
   def show

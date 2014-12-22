@@ -548,8 +548,10 @@ if File.exists?(showdown_yaml)
 end
 
 if Rails.env.development?
-
-    if AdminUser.create(email: 'pascal@teambrewery.io', :password => 'local')
+    admin = AdminUser.new
+    admin.email = "api-dev@teambrewery.io"
+    admin.password = "local1234"
+    if admin.save()
        puts "Created admin: pascal@teambrewery.io - password: local - (development only)"
     end
 

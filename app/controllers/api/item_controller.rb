@@ -1,4 +1,4 @@
-class Api::ItemController < ApplicationController
+class Api::ItemController < Api::ApiController
   def index
   end
 

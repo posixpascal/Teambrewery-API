@@ -1,4 +1,4 @@
-class Api::TypeController < ApplicationController
+class Api::TypeController < Api::ApiController
   def show
   end
 

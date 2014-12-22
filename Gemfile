@@ -29,7 +29,6 @@ gem 'devise'
 gem "kaminari"
 gem 'activeadmin', github: 'activeadmin'
 gem "carrierwave"
-gem "kaminari"
 gem "annotate"
 gem "active_model_serializers"
 #gem "strong_parameters"
@@ -54,3 +53,7 @@ gem "friendly_id", '~> 5.0.0'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do 
+	gem "better_errors"
+	gem "binding_of_caller"
+end
