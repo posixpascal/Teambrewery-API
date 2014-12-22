@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207101723) do
+ActiveRecord::Schema.define(version: 20141214125320) do
 
   create_table "abilities", force: true do |t|
     t.string   "key"
@@ -115,6 +115,19 @@ ActiveRecord::Schema.define(version: 20141207101723) do
     t.datetime "updated_at"
   end
 
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "item_details", force: true do |t|
     t.integer  "item_id"
     t.boolean  "megastone"
@@ -137,12 +150,6 @@ ActiveRecord::Schema.define(version: 20141207101723) do
     t.integer  "gen"
     t.string   "desc"
     t.integer  "details_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "learnsets", force: true do |t|
-    t.integer  "pokemon_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -261,6 +268,23 @@ ActiveRecord::Schema.define(version: 20141207101723) do
     t.datetime "updated_at"
   end
 
+  create_table "sessions", force: true do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+
+  create_table "team_formats", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "format_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "team_pokemons", force: true do |t|
     t.integer  "pokemon_id"
     t.integer  "evspread"
@@ -275,14 +299,32 @@ ActiveRecord::Schema.define(version: 20141207101723) do
     t.integer  "learnset_id"
     t.integer  "moveset_id"
     t.integer  "ev_spread_id"
+    t.integer  "team_id"
   end
 
   create_table "teams", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
     t.float    "synergy_level"
+    t.integer  "format_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "populate_on_creation"
+    t.boolean  "private"
+    t.integer  "tier_id"
+    t.string   "slug"
+    t.text     "options"
+  end
+
+  add_index "teams", ["slug"], name: "index_teams_on_slug", unique: true
+
+  create_table "type_details", force: true do |t|
+    t.integer  "root_type_id"
+    t.integer  "target_type_id"
+    t.integer  "multiplier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "type_id"
   end
 
   create_table "types", force: true do |t|
@@ -290,6 +332,7 @@ ActiveRecord::Schema.define(version: 20141207101723) do
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "type_detail_id"
   end
 
   create_table "typing_types", force: true do |t|
@@ -306,7 +349,8 @@ ActiveRecord::Schema.define(version: 20141207101723) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
+    t.string   "provider",                            null: false
+    t.string   "uid",                    default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -316,11 +360,21 @@ ActiveRecord::Schema.define(version: 20141207101723) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "email"
+    t.text     "tokens"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
 
 end

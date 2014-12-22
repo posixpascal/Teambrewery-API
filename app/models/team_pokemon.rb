@@ -22,12 +22,13 @@ class TeamPokemon < ActiveRecord::Base
     attr_protected :pokemon, :evspread, :happiness, :nickname, :gender
     attr_protected :shiny, :ability, :item, :created_at, :updated_at, :learnset_id
     attr_protected :moveset_id, :ev_spread_id
-    has_one :pokemon
+    belongs_to :pokemon
     has_one :ev_spread
     has_one :item
     has_one :ability
     belongs_to :team
     belongs_to :user
+
     has_one :moveset
     has_one :typing, :foreign_key => "typing"
     

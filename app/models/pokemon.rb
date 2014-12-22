@@ -17,6 +17,7 @@
 #
 
 class Pokemon < ActiveRecord::Base
+    paginates_per 50
     attr_protected :key, :pokedex, :species, :basestat, :height, :weight, :color, :mega, :mega_forme
     attr_protected :created_at, :updated_at
     has_one :typing
@@ -37,4 +38,26 @@ class Pokemon < ActiveRecord::Base
     has_many :move_pokemons
 
     mount_uploader :sprite, SpriteUploader
+
+
+    scope :spinner, -> { Move.get("Rapid Spin").pokemons }
+    scope :defogger, -> { Move.get("Defog").pokemons }
+    scope :baton_passer, -> { Move.get("Baton Pass").pokemons }
+    scope :momentum, -> { Move.get(["Volt Switch", "U-turn", "Parting Shot"]).map(&:pokemons).flatten! }
+    scope :most_valuables, -> { Format.most_valuables.map {|format| format.pokemons }.flatten }
+
+    def sprite_url
+     if Rails.env.development? 
+      return "http://teambrewery.dev:3333#{(self.sprite.url)}" 
+     else
+      return "http://api.teambrewery.io#{self.sprite.url}"
+     end
+    end
+    def in_tier? tier
+        self.format.name == tier
+    end
+
+    def weaknesses_and_resistances
+        self.typing.weaknesses_and_resistances
+    end
 end

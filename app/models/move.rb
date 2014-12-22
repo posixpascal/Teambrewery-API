@@ -30,9 +30,22 @@ class Move < ActiveRecord::Base
     attr_protected :protectable, :crit_ratio, :created_at, :updated_at
     
 
+
     belongs_to :type
 
     has_many :pokemons, :through => :move_pokemons
     has_many :move_pokemons
 
+
+    def self.get(moves)
+    	if not moves.is_a? Array
+    		self.find_by_name(name)
+    	else
+    		all_moves = []
+    		moves.each do |move|
+    			all_moves.push Move.find_by_name(move)
+    		end
+    		return all_moves
+    	end
+    end
 end

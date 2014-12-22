@@ -311,7 +311,7 @@ if File.exists?(showdown_yaml)
 
    puts "Importing smogon data when possible..."
    puts "Creating author: pokedex@smogon.com"
-   User.create(:email => "pokedex@smogon.com", :password => "yourchoiceok?")
+  # User.create(:email => "pokedex@smogon.com", :password => "yourchoiceok?")
    base_query = Hash.new
    base_query[:pokemon] = {
        :gen => "xy",
@@ -468,7 +468,6 @@ if File.exists?(showdown_yaml)
                        end
 
                        m.pokemon = pokemon
-                       m.author = User.where(:email => "pokedex@smogon.com")[0]
                        m.description = moveset["description"]
                        m.name = moveset["name"]
                        puts "Saving abilities..."

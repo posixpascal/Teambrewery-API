@@ -4,7 +4,7 @@ class CreateTeams < ActiveRecord::Migration
       t.string :name
       t.integer :user_id
       t.float :synergy_level
-
+      t.integer :format_id
       t.timestamps
     end
   end
