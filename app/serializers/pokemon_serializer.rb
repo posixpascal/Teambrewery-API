@@ -1,5 +1,5 @@
 class PokemonSerializer < ActiveModel::Serializer
-  attributes :id, :sprite_url, :species, :typing, :random_battle_moves, :type_details
+  attributes :id, :sprite_url, :pokedex, :species, :typing, :random_battle_moves, :type_details
   attributes :basestats
   attributes :abilities
   attributes :movesets

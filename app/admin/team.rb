@@ -14,5 +14,23 @@ ActiveAdmin.register Team do
   #   permitted
   # end
 
+  index do
+    column "Name", :name
+    column "Pokemon" do |team|
+      s = []
+      team.pokemons.each do |p|
+        s.push(image_tag p.sprite.url, {height: "30px"}) unless p.nil?
+      end
+      raw(s.join(""))
+    end
+    column "User" do |team|
+      if team.user.nil?
+        "Private"
+      else
+        team.user
+      end
+    end
+    actions
+  end
 
 end

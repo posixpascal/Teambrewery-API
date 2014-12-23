@@ -12,6 +12,7 @@ Rails.application.routes.draw do
      match "pokemon/random/format/ou", :to => "pokemon#random_ou", :via => [:options, :get]
      match "pokemon/random/format/:format", :to => "pokemon#random_format", :via => [:options, :get]
      match "pokemon/random/from/:tier/with/:move", :to => "pokemon#random_move", :via => [:options, :get]
+     match "pokemons/format/:tier", :to => "pokemon#all_format", :via => [:options, :get]
 
      match "team/:id", :to => "team#show", :via => [:options, :get]
      match "team/:id/update", :to => "team#update", :via => [:options, :post]

@@ -286,10 +286,20 @@ if File.exists?(showdown_yaml)
        pokemon_sprite.gsub!(/-meganium/, "meganium")
        pokemon_sprite.gsub!(/nidoranf/, "nidoran-f")
        pokemon_sprite.gsub!(/nidoranm/, "nidoran-m")
+       pokemon_sprite.gsub!(/kyurem-/, "kyurem")
+       pokemon_sprite.gsub!(/arceus-(.*)/, "arceus")
+       pokemon_sprite.gsub!(/darmanitanzen/, "darmanitan-zen")
        pokemon_sprite.gsub!(/rotom/) {|rot| rot + "-" }
        if pokemon_sprite == "rotom-"
         pokemon_sprite = "rotom"
-      end
+       end
+       if pokemon_sprite.starts_with? "arceus"
+        pokemon_sprite == "arceus"
+       end
+
+       if pokemon_sprite.start_with? "aegislash"
+        pokemon_sprite = "aegislash"
+       end
 
        pokemon_sprite.gsub!(/therian/, "-therian")
        
@@ -304,6 +314,31 @@ if File.exists?(showdown_yaml)
            pokemon.save!
        else
            puts "Sprite not found for: #{pokemon.species} - path: #{sprite_path}"
+           puts "Looking for showdown..."
+           begin 
+            p = open("http://play.pokemonshowdown.com/sprites/xyani/#{pokemon.species.downcase}.gif")
+            if not p.nil?
+             pokemon.sprite = p
+            end
+          rescue
+            begin
+              p = open("http://play.pokemonshowdown.com/sprites/xyani/#{pokemon.species.gsub(/-/, '').downcase}.gif")
+              if not p.nil?
+               pokemon.sprite = p
+              end
+            rescue
+            end
+          end
+       end
+       if pokemon.pokedex.nil? 
+       else
+         mini_sprite_path = "./" + sprite_dir + "mini/" + pokemon.pokedex.to_s + ".png"
+         if File.exists?(mini_sprite_path)
+            pokemon.sprite_mini = File.open(mini_sprite_path)
+            pokemon.save!
+          else
+            puts "No sprite for: #{pokemon.species} - #{pokemon.pokedex}"
+         end
        end
 
 

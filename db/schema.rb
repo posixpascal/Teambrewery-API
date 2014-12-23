@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222150906) do
+ActiveRecord::Schema.define(version: 20141223194722) do
 
   create_table "abilities", force: true do |t|
     t.string   "key"
@@ -269,6 +269,7 @@ ActiveRecord::Schema.define(version: 20141222150906) do
     t.datetime "updated_at"
     t.string   "sprite"
     t.integer  "family_id"
+    t.string   "sprite_mini"
   end
 
   create_table "random_battle_moves", force: true do |t|

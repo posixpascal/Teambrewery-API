@@ -13,6 +13,11 @@ ActiveAdmin.register Ability do
   #   permitted << :other if resource.something?
   #   permitted
   # end
+  index do
+    column "Name", :name
+    column "Rating", :rating
+    column "Description", :short_desc
 
+  end
 
 end

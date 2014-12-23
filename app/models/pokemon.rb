@@ -37,6 +37,7 @@ class Pokemon < ActiveRecord::Base
     has_many :moves, :through => :move_pokemons
     has_many :move_pokemons
 
+    mount_uploader :sprite_mini, SpriteUploader
     mount_uploader :sprite, SpriteUploader
 
 

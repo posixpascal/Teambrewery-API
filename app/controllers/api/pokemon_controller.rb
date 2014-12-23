@@ -11,6 +11,12 @@ class Api::PokemonController < Api::ApiController
          render json: @pokemon
       end
   end
+  
+  def all_format
+    pokes = Format.find_by_name(params[:tier]).pokemons
+    @pokemon = pokes.page(params[:page] || 1)
+    render json: @pokemon
+  end
 
   def all
     if params[:page]
